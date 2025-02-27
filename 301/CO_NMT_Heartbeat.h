@@ -114,7 +114,8 @@ typedef enum {
 #define CO_NMT_ERR_REG_MASK            0x00FFU
 /** If bit is set then device enters NMT operational state after the initialization phase otherwise it enters NMT
  * pre-operational state. */
-#define CO_NMT_STARTUP_TO_OPERATIONAL  0x0100U
+// #define CO_NMT_STARTUP_TO_OPERATIONAL  0x0100U
+#define CO_NMT_STARTUP_TO_OPERATIONAL  0x00000
 /** If bit is set and device is operational it enters NMT pre-operational or stopped state if CAN bus is off or
  * heartbeat consumer timeout is detected. */
 #define CO_NMT_ERR_ON_BUSOFF_HB        0x1000U
