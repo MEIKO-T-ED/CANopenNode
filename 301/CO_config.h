@@ -536,7 +536,7 @@ extern "C" {
 #ifdef CO_DOXYGEN
 #define CO_CONFIG_LEDS (CO_CONFIG_LEDS_ENABLE | CO_CONFIG_GLOBAL_FLAG_TIMERNEXT)
 #endif
-#define CO_CONFIG_LEDS_ENABLE 0x01
+#define CO_CONFIG_LEDS_ENABLE 0x00
 /** @} */ /* CO_STACK_CONFIG_LEDS */
 
 /**
@@ -608,9 +608,9 @@ extern "C" {
 #ifdef CO_DOXYGEN
 #define CO_CONFIG_LSS (CO_CONFIG_LSS_SLAVE | CO_CONFIG_GLOBAL_FLAG_CALLBACK_PRE)
 #endif
-#define CO_CONFIG_LSS_SLAVE                         0x01
-#define CO_CONFIG_LSS_SLAVE_FASTSCAN_DIRECT_RESPOND 0x02
-#define CO_CONFIG_LSS_MASTER                        0x10
+#define CO_CONFIG_LSS_SLAVE                         0x00
+#define CO_CONFIG_LSS_SLAVE_FASTSCAN_DIRECT_RESPOND 0x00
+#define CO_CONFIG_LSS_MASTER                        0x00
 /** @} */ /* CO_STACK_CONFIG_LSS */
 
 /**
@@ -784,6 +784,7 @@ extern "C" {
 /** @} */ /* CO_STACK_CONFIG_DEBUG */
 
 /** @} */ /* CO_STACK_CONFIG */
+#define CO_CONFIG_RPDO_COUNT       1
 
 #ifdef __cplusplus
 }

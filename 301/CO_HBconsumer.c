@@ -19,7 +19,6 @@
  */
 
 #include "301/CO_HBconsumer.h"
-#include "co_app_it.h"
 
 #if ((CO_CONFIG_HB_CONS)&CO_CONFIG_HB_CONS_ENABLE) != 0
 
@@ -161,7 +160,7 @@ CO_HBconsumer_init(CO_HBconsumer_t* HBcons, CO_EM_t* em, CO_HBconsNode_t* monito
     }
 #endif
 
-    CO_HBconsumer_initCallbackTimeout(HBcons, 0, NULL, pfHBCallback);
+    /*CO_HBconsumer_initCallbackTimeout(HBcons, 0, NULL, pfHBCallback);*/
 
     return CO_ERROR_NO;
 }
