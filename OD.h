@@ -11,21 +11,21 @@
 
     File info:
         File Names:   OD.h; OD.c
-        Project File: IO_Board_sim.xdd
+        Project File: MIKE_EA4.xdd
         File Version: 1
 
-        Created:      20.04.2026 15:00:00
-        Created By:   Lukas Wendle
-        Modified:     21.04.2026 08:16:18
-        Modified By:  Lukas Wendle
+        Created:      11.05.2026 11:14:00
+        Created By:   MEIKO
+        Modified:     12.05.2026 13:40:50
+        Modified By:  MEIKO
 
     Device Info:
         Vendor Name:  MEIKO
-        Vendor ID:    0x00000000
-        Product Name: CANopen
-        Product ID:   0x00000000
+        Vendor ID:    0x0000031F
+        Product Name: MIKE_E/A4
+        Product ID:   0x0000078D
 
-        Description:  
+        Description:  MIKE_EA4
 *******************************************************************************/
 
 #ifndef OD_H
@@ -39,19 +39,70 @@
 #define OD_CNT_HB_CONS 1
 #define OD_CNT_HB_PROD 1
 #define OD_CNT_SDO_SRV 1
-#define OD_CNT_RPDO 1
-#define OD_CNT_TPDO 2
+#define OD_CNT_RPDO 4
+#define OD_CNT_TPDO 4
 
 
 /*******************************************************************************
     Sizes of OD arrays
 *******************************************************************************/
-#define OD_CNT_ARR_1003 16
+#define OD_CNT_ARR_1003 1
 #define OD_CNT_ARR_1016 1
 #define OD_CNT_ARR_2000 12
+#define OD_CNT_ARR_2010 12
+#define OD_CNT_ARR_2011 11
+#define OD_CNT_ARR_2020 12
+#define OD_CNT_ARR_2021 12
+#define OD_CNT_ARR_2022 12
+#define OD_CNT_ARR_2030 12
+#define OD_CNT_ARR_2031 12
+#define OD_CNT_ARR_2040 12
+#define OD_CNT_ARR_2100 12
+#define OD_CNT_ARR_2110 12
+#define OD_CNT_ARR_2120 12
+#define OD_CNT_ARR_2130 12
+#define OD_CNT_ARR_2200 7
+#define OD_CNT_ARR_2210 7
+#define OD_CNT_ARR_2220 7
+#define OD_CNT_ARR_2221 7
+#define OD_CNT_ARR_2222 7
+#define OD_CNT_ARR_2223 7
+#define OD_CNT_ARR_2224 7
+#define OD_CNT_ARR_2225 7
+#define OD_CNT_ARR_2226 7
+#define OD_CNT_ARR_2227 7
+#define OD_CNT_ARR_2228 7
+#define OD_CNT_ARR_2229 7
+#define OD_CNT_ARR_2230 7
+#define OD_CNT_ARR_2240 7
+#define OD_CNT_ARR_2300 2
+#define OD_CNT_ARR_2410 5
+#define OD_CNT_ARR_2411 5
+#define OD_CNT_ARR_2420 5
+#define OD_CNT_ARR_2430 5
+#define OD_CNT_ARR_2431 5
 #define OD_CNT_ARR_6000 2
-#define OD_CNT_ARR_6001 2
-#define OD_CNT_ARR_6002 8
+#define OD_CNT_ARR_6002 2
+#define OD_CNT_ARR_6003 2
+#define OD_CNT_ARR_6006 2
+#define OD_CNT_ARR_6020 12
+#define OD_CNT_ARR_6030 12
+#define OD_CNT_ARR_6038 12
+#define OD_CNT_ARR_6050 12
+#define OD_CNT_ARR_6100 1
+#define OD_CNT_ARR_6102 1
+#define OD_CNT_ARR_6103 1
+#define OD_CNT_ARR_6106 1
+#define OD_CNT_ARR_6200 2
+#define OD_CNT_ARR_6202 2
+#define OD_CNT_ARR_6220 12
+#define OD_CNT_ARR_6240 12
+#define OD_CNT_ARR_6300 1
+#define OD_CNT_ARR_6302 1
+#define OD_CNT_ARR_6400 7
+#define OD_CNT_ARR_6401 7
+#define OD_CNT_ARR_6414 2
+#define OD_CNT_ARR_6426 7
 
 
 /*******************************************************************************
@@ -61,6 +112,8 @@ typedef struct {
     uint32_t x1000_deviceType;
     uint8_t x1001_errorRegister;
     uint32_t x1002_manufacturerStatusRegister;
+    uint8_t x1003_re_definedErrorField_sub0;
+    uint32_t x1003_re_definedErrorField[OD_CNT_ARR_1003];
     char x1008_manufacturerDeviceName[10];
     uint32_t x1014_emergencyCOB_ID;
     uint16_t x1015_inhibitTimeEmergency;
@@ -113,6 +166,14 @@ typedef struct {
         uint8_t SYNCStartValue;
     } x1801_TPDOCommunicationParameter;
     struct {
+        uint8_t highestSub_indexSupported;
+        uint32_t COB_IDUsedByTPDO;
+        uint8_t transmissionType;
+        uint16_t inhibitTime;
+        uint16_t eventTimer;
+        uint8_t SYNCStartValue;
+    } x1802_TPDOCommunicationParameter;
+    struct {
         uint8_t numberOfMappedApplicationObjectsInPDO;
         uint32_t applicationObject1;
         uint32_t applicationObject2;
@@ -134,20 +195,213 @@ typedef struct {
         uint32_t applicationObject7;
         uint32_t applicationObject8;
     } x1A01_TPDOMappingParameter;
+    struct {
+        uint8_t numberOfMappedApplicationObjectsInPDO;
+        uint32_t applicationObject1;
+        uint32_t applicationObject2;
+        uint32_t applicationObject3;
+        uint32_t applicationObject4;
+        uint32_t applicationObject5;
+        uint32_t applicationObject6;
+        uint32_t applicationObject7;
+        uint32_t applicationObject8;
+    } x1A02_TPDOMappingParameter;
     uint8_t x2000_digitalInputHardwareCapabilities_sub0;
     uint32_t x2000_digitalInputHardwareCapabilities[OD_CNT_ARR_2000];
-    uint8_t x6000_digitalInputs_sub0;
-    uint8_t x6000_digitalInputs[OD_CNT_ARR_6000];
-    uint8_t x6001_digitalOutputs_sub0;
-    uint8_t x6001_digitalOutputs[OD_CNT_ARR_6001];
-    uint8_t x6002_analogValues_sub0;
-    int16_t x6002_analogValues[OD_CNT_ARR_6002];
+    uint8_t x2010_digitalInputHardwareConfiguration_sub0;
+    uint16_t x2010_digitalInputHardwareConfiguration[OD_CNT_ARR_2010];
+    uint8_t x2011_digitalInputDebounceTime_sub0;
+    uint8_t x2011_digitalInputDebounceTime[OD_CNT_ARR_2011];
+    uint8_t x2020_digitalInputGateTime_sub0;
+    uint8_t x2020_digitalInputGateTime[OD_CNT_ARR_2020];
+    uint8_t x2021_digitalInputConductanceThreshold_sub0;
+    uint8_t x2021_digitalInputConductanceThreshold[OD_CNT_ARR_2021];
+    uint8_t x2022_digitalInputCountdownValue_sub0;
+    uint8_t x2022_digitalInputCountdownValue[OD_CNT_ARR_2022];
+    uint8_t x2030_digitalInputFrequency_sub0;
+    uint8_t x2030_digitalInputFrequency[OD_CNT_ARR_2030];
+    uint8_t x2031_digitalInputEventCount_sub0;
+    uint8_t x2031_digitalInputEventCount[OD_CNT_ARR_2031];
+    uint8_t x2040_digitalInputStatus_sub0;
+    uint8_t x2040_digitalInputStatus[OD_CNT_ARR_2040];
+    uint8_t x2100_digitalOutputHardwareCapabilities_sub0;
+    uint32_t x2100_digitalOutputHardwareCapabilities[OD_CNT_ARR_2100];
+    uint8_t x2110_digitalOutputHardwareConfiguration_sub0;
+    uint16_t x2110_digitalOutputHardwareConfiguration[OD_CNT_ARR_2110];
+    uint8_t x2120_digitalOutputPulsePeriod_sub0;
+    uint8_t x2120_digitalOutputPulsePeriod[OD_CNT_ARR_2120];
+    uint8_t x2130_digitalOutputPulseDuty_sub0;
+    uint8_t x2130_digitalOutputPulseDuty[OD_CNT_ARR_2130];
+    uint8_t x2200_analogueInputHardwareCapabilities_sub0;
+    uint32_t x2200_analogueInputHardwareCapabilities[OD_CNT_ARR_2200];
+    uint8_t x2210_analogueInputHardwareConfiguration_sub0;
+    uint16_t x2210_analogueInputHardwareConfiguration[OD_CNT_ARR_2210];
+    uint8_t x2220_analogueInputSpanLow_sub0;
+    int16_t x2220_analogueInputSpanLow[OD_CNT_ARR_2220];
+    uint8_t x2221_analogueInputSpanHigh_sub0;
+    int16_t x2221_analogueInputSpanHigh[OD_CNT_ARR_2221];
+    uint8_t x2222_analogueInputClampThresholdLow_sub0;
+    uint16_t x2222_analogueInputClampThresholdLow[OD_CNT_ARR_2222];
+    uint8_t x2223_analogueInputClampThresholdHigh_sub0;
+    uint16_t x2223_analogueInputClampThresholdHigh[OD_CNT_ARR_2223];
+    uint8_t x2224_analogueInputClampValueLow_sub0;
+    uint8_t x2224_analogueInputClampValueLow[OD_CNT_ARR_2224];
+    uint8_t x2225_analogueInputClampValueHigh_sub0;
+    uint8_t x2225_analogueInputClampValueHigh[OD_CNT_ARR_2225];
+    uint8_t x2226_analogueInputErrorThresholdLow_sub0;
+    uint16_t x2226_analogueInputErrorThresholdLow[OD_CNT_ARR_2226];
+    uint8_t x2227_analogueInputErrorThresholdHigh_sub0;
+    uint16_t x2227_analogueInputErrorThresholdHigh[OD_CNT_ARR_2227];
+    uint8_t x2228_analogueInputDampingConstant_sub0;
+    uint8_t x2228_analogueInputDampingConstant[OD_CNT_ARR_2228];
+    uint8_t x2229_analogueInputInterruptAbsoluteDelta_sub0;
+    uint8_t x2229_analogueInputInterruptAbsoluteDelta[OD_CNT_ARR_2229];
+    uint8_t x2230_analogueInputTransformedValue_sub0;
+    uint8_t x2230_analogueInputTransformedValue[OD_CNT_ARR_2230];
+    uint8_t x2240_analogueInputStatus_sub0;
+    uint8_t x2240_analogueInputStatus[OD_CNT_ARR_2240];
+    uint8_t x2300_analogueOutputHardwareCapabilities_sub0;
+    uint32_t x2300_analogueOutputHardwareCapabilities[OD_CNT_ARR_2300];
+    uint8_t x2410_motionSenseInputA_sub0;
+    uint8_t x2410_motionSenseInputA[OD_CNT_ARR_2410];
+    uint8_t x2411_motionSenseInputB_sub0;
+    uint8_t x2411_motionSenseInputB[OD_CNT_ARR_2411];
+    uint8_t x2420_motionSenseGateTime_sub0;
+    uint8_t x2420_motionSenseGateTime[OD_CNT_ARR_2420];
+    uint8_t x2430_motionSenseFrequency_sub0;
+    uint8_t x2430_motionSenseFrequency[OD_CNT_ARR_2430];
+    uint8_t x2431_motionSenseEventCount_sub0;
+    uint8_t x2431_motionSenseEventCount[OD_CNT_ARR_2431];
+    uint8_t x6000_readInputs8Bit_sub0;
+    uint8_t x6000_readInputs8Bit[OD_CNT_ARR_6000];
+    uint8_t x6002_polarityInput8Bit_sub0;
+    uint8_t x6002_polarityInput8Bit[OD_CNT_ARR_6002];
+    uint8_t x6003_filterConstantInput8Bit_sub0;
+    uint8_t x6003_filterConstantInput8Bit[OD_CNT_ARR_6003];
+    bool_t x6005_globalInterruptEnableDigital;
+    uint8_t x6006_interruptMaskAnyChange8Bit_sub0;
+    uint8_t x6006_interruptMaskAnyChange8Bit[OD_CNT_ARR_6006];
+    uint8_t x6020_readInputBit0x1To0x80_sub0;
+    bool_t x6020_readInputBit0x1To0x80[OD_CNT_ARR_6020];
+    uint8_t x6030_polarityInputBit0x1To0x80_sub0;
+    bool_t x6030_polarityInputBit0x1To0x80[OD_CNT_ARR_6030];
+    uint8_t x6038_filterConstantInputBit0x1To0x80_sub0;
+    bool_t x6038_filterConstantInputBit0x1To0x80[OD_CNT_ARR_6038];
+    uint8_t x6050_interruptMaskInputAnyChangeBit0x1To0x80_sub0;
+    bool_t x6050_interruptMaskInputAnyChangeBit0x1To0x80[OD_CNT_ARR_6050];
+    uint8_t x6100_readInputs16Bit_sub0;
+    uint16_t x6100_readInputs16Bit[OD_CNT_ARR_6100];
+    uint8_t x6102_polarityInput16Bit_sub0;
+    uint16_t x6102_polarityInput16Bit[OD_CNT_ARR_6102];
+    uint8_t x6103_filterConstantInput16Bit_sub0;
+    uint16_t x6103_filterConstantInput16Bit[OD_CNT_ARR_6103];
+    uint8_t x6106_interruptMaskAnyChange16Bit_sub0;
+    uint16_t x6106_interruptMaskAnyChange16Bit[OD_CNT_ARR_6106];
+    uint8_t x6200_writeOutputs8Bit_sub0;
+    uint8_t x6200_writeOutputs8Bit[OD_CNT_ARR_6200];
+    uint8_t x6202_changePolarityOutputs8Bit_sub0;
+    uint8_t x6202_changePolarityOutputs8Bit[OD_CNT_ARR_6202];
+    uint8_t x6220_writeOutputsBit1To128_sub0;
+    bool_t x6220_writeOutputsBit1To128[OD_CNT_ARR_6220];
+    uint8_t x6240_changePolarityOutputsBit1To128_sub0;
+    bool_t x6240_changePolarityOutputsBit1To128[OD_CNT_ARR_6240];
+    uint8_t x6300_writeOutputs16Bit_sub0;
+    uint16_t x6300_writeOutputs16Bit[OD_CNT_ARR_6300];
+    uint8_t x6302_changePolarityOutputs16Bit_sub0;
+    uint16_t x6302_changePolarityOutputs16Bit[OD_CNT_ARR_6302];
+    uint8_t x6400_readAnalogueInput8Bit_sub0;
+    int8_t x6400_readAnalogueInput8Bit[OD_CNT_ARR_6400];
+    uint8_t x6401_readAnalogueInput16Bit_sub0;
+    int16_t x6401_readAnalogueInput16Bit[OD_CNT_ARR_6401];
+    uint8_t x6414_write_manufacturer_specific_analogue_output_sub0;
+    uint8_t x6414_write_manufacturer_specific_analogue_output[OD_CNT_ARR_6414];
+    bool_t x6423_analogueInputGlobalInterruptEnable;
+    uint8_t x6426_analogueInputInterruptDeltaUnsigned_sub0;
+    uint32_t x6426_analogueInputInterruptDeltaUnsigned[OD_CNT_ARR_6426];
 } OD_RAM_t;
+
+typedef struct {
+    struct {
+        uint8_t highestSub_indexSupported;
+        uint32_t COB_IDUsedByRPDO;
+        uint8_t transmissionType;
+        uint16_t eventTimer;
+    } x1401_RPDOCommunicationParameter;
+    struct {
+        uint8_t highestSub_indexSupported;
+        uint32_t COB_IDUsedByRPDO;
+        uint8_t transmissionType;
+        uint16_t eventTimer;
+    } x1402_RPDOCommunicationParameter;
+    struct {
+        uint8_t highestSub_indexSupported;
+        uint32_t COB_IDUsedByRPDO;
+        uint8_t transmissionType;
+        uint16_t eventTimer;
+    } x1403_RPDOCommunicationParameter;
+    struct {
+        uint8_t numberOfMappedApplicationObjectsInPDO;
+        uint32_t applicationObject1;
+        uint32_t applicationObject2;
+        uint32_t applicationObject3;
+        uint32_t applicationObject4;
+        uint32_t applicationObject5;
+        uint32_t applicationObject6;
+        uint32_t applicationObject7;
+        uint32_t applicationObject8;
+    } x1601_RPDOMappingParameter;
+    struct {
+        uint8_t numberOfMappedApplicationObjectsInPDO;
+        uint32_t applicationObject1;
+        uint32_t applicationObject2;
+        uint32_t applicationObject3;
+        uint32_t applicationObject4;
+        uint32_t applicationObject5;
+        uint32_t applicationObject6;
+        uint32_t applicationObject7;
+        uint32_t applicationObject8;
+    } x1602_RPDOMappingParameter;
+    struct {
+        uint8_t numberOfMappedApplicationObjectsInPDO;
+        uint32_t applicationObject1;
+        uint32_t applicationObject2;
+        uint32_t applicationObject3;
+        uint32_t applicationObject4;
+        uint32_t applicationObject5;
+        uint32_t applicationObject6;
+        uint32_t applicationObject7;
+        uint32_t applicationObject8;
+    } x1603_RPDOMappingParameter;
+    struct {
+        uint8_t highestSub_indexSupported;
+        uint32_t COB_IDUsedByTPDO;
+        uint8_t transmissionType;
+        uint16_t inhibitTime;
+        uint16_t eventTimer;
+        uint8_t SYNCStartValue;
+    } x1803_TPDOCommunicationParameter;
+    struct {
+        uint8_t numberOfMappedApplicationObjectsInPDO;
+        uint32_t applicationObject1;
+        uint32_t applicationObject2;
+        uint32_t applicationObject3;
+        uint32_t applicationObject4;
+        uint32_t applicationObject5;
+        uint32_t applicationObject6;
+        uint32_t applicationObject7;
+        uint32_t applicationObject8;
+    } x1A03_TPDOMappingParameter;
+} OD_PERSIST_COMM_t;
 
 #ifndef OD_ATTR_RAM
 #define OD_ATTR_RAM
 #endif
 extern OD_ATTR_RAM OD_RAM_t OD_RAM;
+
+#ifndef OD_ATTR_PERSIST_COMM
+#define OD_ATTR_PERSIST_COMM
+#endif
+extern OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM;
 
 #ifndef OD_ATTR_OD
 #define OD_ATTR_OD
@@ -172,15 +426,78 @@ extern OD_ATTR_OD OD_t *OD;
 #define OD_ENTRY_H1018 &OD->list[11]
 #define OD_ENTRY_H1200 &OD->list[12]
 #define OD_ENTRY_H1400 &OD->list[13]
-#define OD_ENTRY_H1600 &OD->list[14]
-#define OD_ENTRY_H1800 &OD->list[15]
-#define OD_ENTRY_H1801 &OD->list[16]
-#define OD_ENTRY_H1A00 &OD->list[17]
-#define OD_ENTRY_H1A01 &OD->list[18]
-#define OD_ENTRY_H2000 &OD->list[19]
-#define OD_ENTRY_H6000 &OD->list[20]
-#define OD_ENTRY_H6001 &OD->list[21]
-#define OD_ENTRY_H6002 &OD->list[22]
+#define OD_ENTRY_H1401 &OD->list[14]
+#define OD_ENTRY_H1402 &OD->list[15]
+#define OD_ENTRY_H1403 &OD->list[16]
+#define OD_ENTRY_H1600 &OD->list[17]
+#define OD_ENTRY_H1601 &OD->list[18]
+#define OD_ENTRY_H1602 &OD->list[19]
+#define OD_ENTRY_H1603 &OD->list[20]
+#define OD_ENTRY_H1800 &OD->list[21]
+#define OD_ENTRY_H1801 &OD->list[22]
+#define OD_ENTRY_H1802 &OD->list[23]
+#define OD_ENTRY_H1803 &OD->list[24]
+#define OD_ENTRY_H1A00 &OD->list[25]
+#define OD_ENTRY_H1A01 &OD->list[26]
+#define OD_ENTRY_H1A02 &OD->list[27]
+#define OD_ENTRY_H1A03 &OD->list[28]
+#define OD_ENTRY_H2000 &OD->list[29]
+#define OD_ENTRY_H2010 &OD->list[30]
+#define OD_ENTRY_H2011 &OD->list[31]
+#define OD_ENTRY_H2020 &OD->list[32]
+#define OD_ENTRY_H2021 &OD->list[33]
+#define OD_ENTRY_H2022 &OD->list[34]
+#define OD_ENTRY_H2030 &OD->list[35]
+#define OD_ENTRY_H2031 &OD->list[36]
+#define OD_ENTRY_H2040 &OD->list[37]
+#define OD_ENTRY_H2100 &OD->list[38]
+#define OD_ENTRY_H2110 &OD->list[39]
+#define OD_ENTRY_H2120 &OD->list[40]
+#define OD_ENTRY_H2130 &OD->list[41]
+#define OD_ENTRY_H2200 &OD->list[42]
+#define OD_ENTRY_H2210 &OD->list[43]
+#define OD_ENTRY_H2220 &OD->list[44]
+#define OD_ENTRY_H2221 &OD->list[45]
+#define OD_ENTRY_H2222 &OD->list[46]
+#define OD_ENTRY_H2223 &OD->list[47]
+#define OD_ENTRY_H2224 &OD->list[48]
+#define OD_ENTRY_H2225 &OD->list[49]
+#define OD_ENTRY_H2226 &OD->list[50]
+#define OD_ENTRY_H2227 &OD->list[51]
+#define OD_ENTRY_H2228 &OD->list[52]
+#define OD_ENTRY_H2229 &OD->list[53]
+#define OD_ENTRY_H2230 &OD->list[54]
+#define OD_ENTRY_H2240 &OD->list[55]
+#define OD_ENTRY_H2300 &OD->list[56]
+#define OD_ENTRY_H2410 &OD->list[57]
+#define OD_ENTRY_H2411 &OD->list[58]
+#define OD_ENTRY_H2420 &OD->list[59]
+#define OD_ENTRY_H2430 &OD->list[60]
+#define OD_ENTRY_H2431 &OD->list[61]
+#define OD_ENTRY_H6000 &OD->list[62]
+#define OD_ENTRY_H6002 &OD->list[63]
+#define OD_ENTRY_H6003 &OD->list[64]
+#define OD_ENTRY_H6005 &OD->list[65]
+#define OD_ENTRY_H6006 &OD->list[66]
+#define OD_ENTRY_H6020 &OD->list[67]
+#define OD_ENTRY_H6030 &OD->list[68]
+#define OD_ENTRY_H6038 &OD->list[69]
+#define OD_ENTRY_H6050 &OD->list[70]
+#define OD_ENTRY_H6100 &OD->list[71]
+#define OD_ENTRY_H6102 &OD->list[72]
+#define OD_ENTRY_H6103 &OD->list[73]
+#define OD_ENTRY_H6106 &OD->list[74]
+#define OD_ENTRY_H6200 &OD->list[75]
+#define OD_ENTRY_H6202 &OD->list[76]
+#define OD_ENTRY_H6220 &OD->list[77]
+#define OD_ENTRY_H6240 &OD->list[78]
+#define OD_ENTRY_H6300 &OD->list[79]
+#define OD_ENTRY_H6302 &OD->list[80]
+#define OD_ENTRY_H6400 &OD->list[81]
+#define OD_ENTRY_H6401 &OD->list[82]
+#define OD_ENTRY_H6414 &OD->list[83]
+#define OD_ENTRY_H6423 &OD->list[84]
+#define OD_ENTRY_H6426 &OD->list[85]
 
 
 /*******************************************************************************
@@ -189,7 +506,7 @@ extern OD_ATTR_OD OD_t *OD;
 #define OD_ENTRY_H1000_deviceType &OD->list[0]
 #define OD_ENTRY_H1001_errorRegister &OD->list[1]
 #define OD_ENTRY_H1002_manufacturerStatusRegister &OD->list[2]
-#define OD_ENTRY_H1003_pre_definedErrorField &OD->list[3]
+#define OD_ENTRY_H1003_re_definedErrorField &OD->list[3]
 #define OD_ENTRY_H1008_manufacturerDeviceName &OD->list[4]
 #define OD_ENTRY_H1009_manufacturerHardwareVersion &OD->list[5]
 #define OD_ENTRY_H100A_manufacturerSoftwareVersion &OD->list[6]
@@ -200,15 +517,78 @@ extern OD_ATTR_OD OD_t *OD;
 #define OD_ENTRY_H1018_identity &OD->list[11]
 #define OD_ENTRY_H1200_serverSDO_Parameter &OD->list[12]
 #define OD_ENTRY_H1400_RPDOCommunicationParameter &OD->list[13]
-#define OD_ENTRY_H1600_RPDOMappingParameter &OD->list[14]
-#define OD_ENTRY_H1800_TPDOCommunicationParameter &OD->list[15]
-#define OD_ENTRY_H1801_TPDOCommunicationParameter &OD->list[16]
-#define OD_ENTRY_H1A00_TPDOMappingParameter &OD->list[17]
-#define OD_ENTRY_H1A01_TPDOMappingParameter &OD->list[18]
-#define OD_ENTRY_H2000_digitalInputHardwareCapabilities &OD->list[19]
-#define OD_ENTRY_H6000_digitalInputs &OD->list[20]
-#define OD_ENTRY_H6001_digitalOutputs &OD->list[21]
-#define OD_ENTRY_H6002_analogValues &OD->list[22]
+#define OD_ENTRY_H1401_RPDOCommunicationParameter &OD->list[14]
+#define OD_ENTRY_H1402_RPDOCommunicationParameter &OD->list[15]
+#define OD_ENTRY_H1403_RPDOCommunicationParameter &OD->list[16]
+#define OD_ENTRY_H1600_RPDOMappingParameter &OD->list[17]
+#define OD_ENTRY_H1601_RPDOMappingParameter &OD->list[18]
+#define OD_ENTRY_H1602_RPDOMappingParameter &OD->list[19]
+#define OD_ENTRY_H1603_RPDOMappingParameter &OD->list[20]
+#define OD_ENTRY_H1800_TPDOCommunicationParameter &OD->list[21]
+#define OD_ENTRY_H1801_TPDOCommunicationParameter &OD->list[22]
+#define OD_ENTRY_H1802_TPDOCommunicationParameter &OD->list[23]
+#define OD_ENTRY_H1803_TPDOCommunicationParameter &OD->list[24]
+#define OD_ENTRY_H1A00_TPDOMappingParameter &OD->list[25]
+#define OD_ENTRY_H1A01_TPDOMappingParameter &OD->list[26]
+#define OD_ENTRY_H1A02_TPDOMappingParameter &OD->list[27]
+#define OD_ENTRY_H1A03_TPDOMappingParameter &OD->list[28]
+#define OD_ENTRY_H2000_digitalInputHardwareCapabilities &OD->list[29]
+#define OD_ENTRY_H2010_digitalInputHardwareConfiguration &OD->list[30]
+#define OD_ENTRY_H2011_digitalInputDebounceTime &OD->list[31]
+#define OD_ENTRY_H2020_digitalInputGateTime &OD->list[32]
+#define OD_ENTRY_H2021_digitalInputConductanceThreshold &OD->list[33]
+#define OD_ENTRY_H2022_digitalInputCountdownValue &OD->list[34]
+#define OD_ENTRY_H2030_digitalInputFrequency &OD->list[35]
+#define OD_ENTRY_H2031_digitalInputEventCount &OD->list[36]
+#define OD_ENTRY_H2040_digitalInputStatus &OD->list[37]
+#define OD_ENTRY_H2100_digitalOutputHardwareCapabilities &OD->list[38]
+#define OD_ENTRY_H2110_digitalOutputHardwareConfiguration &OD->list[39]
+#define OD_ENTRY_H2120_digitalOutputPulsePeriod &OD->list[40]
+#define OD_ENTRY_H2130_digitalOutputPulseDuty &OD->list[41]
+#define OD_ENTRY_H2200_analogueInputHardwareCapabilities &OD->list[42]
+#define OD_ENTRY_H2210_analogueInputHardwareConfiguration &OD->list[43]
+#define OD_ENTRY_H2220_analogueInputSpanLow &OD->list[44]
+#define OD_ENTRY_H2221_analogueInputSpanHigh &OD->list[45]
+#define OD_ENTRY_H2222_analogueInputClampThresholdLow &OD->list[46]
+#define OD_ENTRY_H2223_analogueInputClampThresholdHigh &OD->list[47]
+#define OD_ENTRY_H2224_analogueInputClampValueLow &OD->list[48]
+#define OD_ENTRY_H2225_analogueInputClampValueHigh &OD->list[49]
+#define OD_ENTRY_H2226_analogueInputErrorThresholdLow &OD->list[50]
+#define OD_ENTRY_H2227_analogueInputErrorThresholdHigh &OD->list[51]
+#define OD_ENTRY_H2228_analogueInputDampingConstant &OD->list[52]
+#define OD_ENTRY_H2229_analogueInputInterruptAbsoluteDelta &OD->list[53]
+#define OD_ENTRY_H2230_analogueInputTransformedValue &OD->list[54]
+#define OD_ENTRY_H2240_analogueInputStatus &OD->list[55]
+#define OD_ENTRY_H2300_analogueOutputHardwareCapabilities &OD->list[56]
+#define OD_ENTRY_H2410_motionSenseInputA &OD->list[57]
+#define OD_ENTRY_H2411_motionSenseInputB &OD->list[58]
+#define OD_ENTRY_H2420_motionSenseGateTime &OD->list[59]
+#define OD_ENTRY_H2430_motionSenseFrequency &OD->list[60]
+#define OD_ENTRY_H2431_motionSenseEventCount &OD->list[61]
+#define OD_ENTRY_H6000_readInputs8Bit &OD->list[62]
+#define OD_ENTRY_H6002_polarityInput8Bit &OD->list[63]
+#define OD_ENTRY_H6003_filterConstantInput8Bit &OD->list[64]
+#define OD_ENTRY_H6005_globalInterruptEnableDigital &OD->list[65]
+#define OD_ENTRY_H6006_interruptMaskAnyChange8Bit &OD->list[66]
+#define OD_ENTRY_H6020_readInputBit0x1To0x80 &OD->list[67]
+#define OD_ENTRY_H6030_polarityInputBit0x1To0x80 &OD->list[68]
+#define OD_ENTRY_H6038_filterConstantInputBit0x1To0x80 &OD->list[69]
+#define OD_ENTRY_H6050_interruptMaskInputAnyChangeBit0x1To0x80 &OD->list[70]
+#define OD_ENTRY_H6100_readInputs16Bit &OD->list[71]
+#define OD_ENTRY_H6102_polarityInput16Bit &OD->list[72]
+#define OD_ENTRY_H6103_filterConstantInput16Bit &OD->list[73]
+#define OD_ENTRY_H6106_interruptMaskAnyChange16Bit &OD->list[74]
+#define OD_ENTRY_H6200_writeOutputs8Bit &OD->list[75]
+#define OD_ENTRY_H6202_changePolarityOutputs8Bit &OD->list[76]
+#define OD_ENTRY_H6220_writeOutputsBit1To128 &OD->list[77]
+#define OD_ENTRY_H6240_changePolarityOutputsBit1To128 &OD->list[78]
+#define OD_ENTRY_H6300_writeOutputs16Bit &OD->list[79]
+#define OD_ENTRY_H6302_changePolarityOutputs16Bit &OD->list[80]
+#define OD_ENTRY_H6400_readAnalogueInput8Bit &OD->list[81]
+#define OD_ENTRY_H6401_readAnalogueInput16Bit &OD->list[82]
+#define OD_ENTRY_H6414_write_manufacturer_specific_analogue_output &OD->list[83]
+#define OD_ENTRY_H6423_analogueInputGlobalInterruptEnable &OD->list[84]
+#define OD_ENTRY_H6426_analogueInputInterruptDeltaUnsigned &OD->list[85]
 
 
 /*******************************************************************************

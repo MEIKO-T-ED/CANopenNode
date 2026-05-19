@@ -24,17 +24,19 @@ OD_ATTR_RAM OD_RAM_t OD_RAM = {
     .x1000_deviceType = 0x00870191,
     .x1001_errorRegister = 0x00,
     .x1002_manufacturerStatusRegister = 0x00000000,
-    .x1008_manufacturerDeviceName = {'M', 'I', 'K', 'E', ' ', 'E', '/', 'A', '1', 0},
+    .x1003_re_definedErrorField_sub0 = 0x01,
+    .x1003_re_definedErrorField = {0x00000000},
+    .x1008_manufacturerDeviceName = {'M', 'I', 'K', 'E', ' ', 'E', '/', 'A', '4', 0},
     .x1014_emergencyCOB_ID = 0x00000080,
     .x1015_inhibitTimeEmergency = 0x0000,
     .x1016_consumerHeartbeatTime_sub0 = 0x01,
-    .x1016_consumerHeartbeatTime = {0x007F0B40},
-    .x1017_producerHeartbeatTime = 0x03E8,
+    .x1016_consumerHeartbeatTime = {0x00000000},
+    .x1017_producerHeartbeatTime = 0x0000,
     .x1018_identity = {
         .numberOfEntries = 0x04,
-        .vendorID = 0x00000000,
-        .productCode = 0x53310000,
-        .revisionNumber = 0x00010000,
+        .vendorID = 0x0000031F,
+        .productCode = 0x0000078D,
+        .revisionNumber = 0x00000001,
         .serialNumber = 0x00000001
     },
     .x1200_serverSDO_Parameter = {
@@ -45,13 +47,13 @@ OD_ATTR_RAM OD_RAM_t OD_RAM = {
     .x1400_RPDOCommunicationParameter = {
         .highestSub_indexSupported = 0x05,
         .COB_IDUsedByRPDO = 0x00000200,
-        .transmissionType = 0xFE,
+        .transmissionType = 0xFF,
         .eventTimer = 0x0000
     },
     .x1600_RPDOMappingParameter = {
         .numberOfMappedApplicationObjectsInPDO = 0x02,
-        .applicationObject1 = 0x60010108,
-        .applicationObject2 = 0x60010208,
+        .applicationObject1 = 0x62000108,
+        .applicationObject2 = 0x62000208,
         .applicationObject3 = 0x00000000,
         .applicationObject4 = 0x00000000,
         .applicationObject5 = 0x00000000,
@@ -62,7 +64,7 @@ OD_ATTR_RAM OD_RAM_t OD_RAM = {
     .x1800_TPDOCommunicationParameter = {
         .highestSub_indexSupported = 0x06,
         .COB_IDUsedByTPDO = 0x00000180,
-        .transmissionType = 0xFE,
+        .transmissionType = 0xFF,
         .inhibitTime = 0x0000,
         .eventTimer = 0x0000,
         .SYNCStartValue = 0x00
@@ -70,7 +72,15 @@ OD_ATTR_RAM OD_RAM_t OD_RAM = {
     .x1801_TPDOCommunicationParameter = {
         .highestSub_indexSupported = 0x06,
         .COB_IDUsedByTPDO = 0x00000280,
-        .transmissionType = 0xFE,
+        .transmissionType = 0xFF,
+        .inhibitTime = 0x0000,
+        .eventTimer = 0x0000,
+        .SYNCStartValue = 0x00
+    },
+    .x1802_TPDOCommunicationParameter = {
+        .highestSub_indexSupported = 0x06,
+        .COB_IDUsedByTPDO = 0x00000380,
+        .transmissionType = 0xFF,
         .inhibitTime = 0x0000,
         .eventTimer = 0x0000,
         .SYNCStartValue = 0x00
@@ -88,23 +98,211 @@ OD_ATTR_RAM OD_RAM_t OD_RAM = {
     },
     .x1A01_TPDOMappingParameter = {
         .numberOfMappedApplicationObjectsInPDO = 0x04,
-        .applicationObject1 = 0x60020110,
-        .applicationObject2 = 0x60020210,
-        .applicationObject3 = 0x60020310,
-        .applicationObject4 = 0x60020410,
+        .applicationObject1 = 0x64010110,
+        .applicationObject2 = 0x64010210,
+        .applicationObject3 = 0x64010310,
+        .applicationObject4 = 0x64010410,
+        .applicationObject5 = 0x00000000,
+        .applicationObject6 = 0x00000000,
+        .applicationObject7 = 0x00000000,
+        .applicationObject8 = 0x00000000
+    },
+    .x1A02_TPDOMappingParameter = {
+        .numberOfMappedApplicationObjectsInPDO = 0x03,
+        .applicationObject1 = 0x64010510,
+        .applicationObject2 = 0x64010610,
+        .applicationObject3 = 0x64010710,
+        .applicationObject4 = 0x00000000,
         .applicationObject5 = 0x00000000,
         .applicationObject6 = 0x00000000,
         .applicationObject7 = 0x00000000,
         .applicationObject8 = 0x00000000
     },
     .x2000_digitalInputHardwareCapabilities_sub0 = 0x0C,
-    .x2000_digitalInputHardwareCapabilities = {0x00000003, 0x00000003, 0x00000003, 0x00000003, 0x0000002A, 0x0000002A, 0x00000006, 0x00000003, 0x00000101, 0x00000101, 0x00000101, 0x00000700},
-    .x6000_digitalInputs_sub0 = 0x02,
-    .x6000_digitalInputs = {0x00, 0x00},
-    .x6001_digitalOutputs_sub0 = 0x02,
-    .x6001_digitalOutputs = {0x00, 0x00},
-    .x6002_analogValues_sub0 = 0x08,
-    .x6002_analogValues = {0, 0, 0, 0, 0, 0, 0, 0}
+    .x2000_digitalInputHardwareCapabilities = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000},
+    .x2010_digitalInputHardwareConfiguration_sub0 = 0x0C,
+    .x2010_digitalInputHardwareConfiguration = {0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000},
+    .x2011_digitalInputDebounceTime_sub0 = 0x0B,
+    .x2011_digitalInputDebounceTime = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2020_digitalInputGateTime_sub0 = 0x0C,
+    .x2020_digitalInputGateTime = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2021_digitalInputConductanceThreshold_sub0 = 0x0C,
+    .x2021_digitalInputConductanceThreshold = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2022_digitalInputCountdownValue_sub0 = 0x0C,
+    .x2022_digitalInputCountdownValue = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2030_digitalInputFrequency_sub0 = 0x0C,
+    .x2030_digitalInputFrequency = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2031_digitalInputEventCount_sub0 = 0x0C,
+    .x2031_digitalInputEventCount = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2040_digitalInputStatus_sub0 = 0x0C,
+    .x2040_digitalInputStatus = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2100_digitalOutputHardwareCapabilities_sub0 = 0x0C,
+    .x2100_digitalOutputHardwareCapabilities = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000},
+    .x2110_digitalOutputHardwareConfiguration_sub0 = 0x0C,
+    .x2110_digitalOutputHardwareConfiguration = {0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000},
+    .x2120_digitalOutputPulsePeriod_sub0 = 0x0C,
+    .x2120_digitalOutputPulsePeriod = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2130_digitalOutputPulseDuty_sub0 = 0x0C,
+    .x2130_digitalOutputPulseDuty = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2200_analogueInputHardwareCapabilities_sub0 = 0x07,
+    .x2200_analogueInputHardwareCapabilities = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000},
+    .x2210_analogueInputHardwareConfiguration_sub0 = 0x07,
+    .x2210_analogueInputHardwareConfiguration = {0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000},
+    .x2220_analogueInputSpanLow_sub0 = 0x07,
+    .x2220_analogueInputSpanLow = {0, 0, 0, 0, 0, 0, 0},
+    .x2221_analogueInputSpanHigh_sub0 = 0x07,
+    .x2221_analogueInputSpanHigh = {0, 0, 0, 0, 0, 0, 0},
+    .x2222_analogueInputClampThresholdLow_sub0 = 0x07,
+    .x2222_analogueInputClampThresholdLow = {0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000},
+    .x2223_analogueInputClampThresholdHigh_sub0 = 0x07,
+    .x2223_analogueInputClampThresholdHigh = {0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000},
+    .x2224_analogueInputClampValueLow_sub0 = 0x07,
+    .x2224_analogueInputClampValueLow = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2225_analogueInputClampValueHigh_sub0 = 0x07,
+    .x2225_analogueInputClampValueHigh = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2226_analogueInputErrorThresholdLow_sub0 = 0x07,
+    .x2226_analogueInputErrorThresholdLow = {0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000},
+    .x2227_analogueInputErrorThresholdHigh_sub0 = 0x07,
+    .x2227_analogueInputErrorThresholdHigh = {0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000},
+    .x2228_analogueInputDampingConstant_sub0 = 0x07,
+    .x2228_analogueInputDampingConstant = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2229_analogueInputInterruptAbsoluteDelta_sub0 = 0x07,
+    .x2229_analogueInputInterruptAbsoluteDelta = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
+    .x2230_analogueInputTransformedValue_sub0 = 0x07,
+    .x2230_analogueInputTransformedValue = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2240_analogueInputStatus_sub0 = 0x07,
+    .x2240_analogueInputStatus = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2300_analogueOutputHardwareCapabilities_sub0 = 0x02,
+    .x2300_analogueOutputHardwareCapabilities = {0x00000000, 0x00000000},
+    .x2410_motionSenseInputA_sub0 = 0x05,
+    .x2410_motionSenseInputA = {0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2411_motionSenseInputB_sub0 = 0x05,
+    .x2411_motionSenseInputB = {0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2420_motionSenseGateTime_sub0 = 0x05,
+    .x2420_motionSenseGateTime = {0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2430_motionSenseFrequency_sub0 = 0x05,
+    .x2430_motionSenseFrequency = {0x00, 0x00, 0x00, 0x00, 0x00},
+    .x2431_motionSenseEventCount_sub0 = 0x05,
+    .x2431_motionSenseEventCount = {0x00, 0x00, 0x00, 0x00, 0x00},
+    .x6000_readInputs8Bit_sub0 = 0x02,
+    .x6000_readInputs8Bit = {0x00, 0x00},
+    .x6002_polarityInput8Bit_sub0 = 0x02,
+    .x6002_polarityInput8Bit = {0x00, 0x00},
+    .x6003_filterConstantInput8Bit_sub0 = 0x02,
+    .x6003_filterConstantInput8Bit = {0x00, 0x00},
+    .x6005_globalInterruptEnableDigital = true,
+    .x6006_interruptMaskAnyChange8Bit_sub0 = 0x02,
+    .x6006_interruptMaskAnyChange8Bit = {0xFF, 0xFF},
+    .x6020_readInputBit0x1To0x80_sub0 = 0x0C,
+    .x6020_readInputBit0x1To0x80 = {false, false, false, false, false, false, false, false, false, false, false, false},
+    .x6030_polarityInputBit0x1To0x80_sub0 = 0x0C,
+    .x6030_polarityInputBit0x1To0x80 = {false, false, false, false, false, false, false, false, false, false, false, false},
+    .x6038_filterConstantInputBit0x1To0x80_sub0 = 0x0C,
+    .x6038_filterConstantInputBit0x1To0x80 = {false, false, false, false, false, false, false, false, false, false, false, false},
+    .x6050_interruptMaskInputAnyChangeBit0x1To0x80_sub0 = 0x0C,
+    .x6050_interruptMaskInputAnyChangeBit0x1To0x80 = {true, true, true, true, true, true, true, true, true, true, true, true},
+    .x6100_readInputs16Bit_sub0 = 0x01,
+    .x6100_readInputs16Bit = {0x0000},
+    .x6102_polarityInput16Bit_sub0 = 0x01,
+    .x6102_polarityInput16Bit = {0x0000},
+    .x6103_filterConstantInput16Bit_sub0 = 0x01,
+    .x6103_filterConstantInput16Bit = {0x0000},
+    .x6106_interruptMaskAnyChange16Bit_sub0 = 0x01,
+    .x6106_interruptMaskAnyChange16Bit = {0xFFFF},
+    .x6200_writeOutputs8Bit_sub0 = 0x02,
+    .x6200_writeOutputs8Bit = {0x00, 0x00},
+    .x6202_changePolarityOutputs8Bit_sub0 = 0x02,
+    .x6202_changePolarityOutputs8Bit = {0x00, 0x00},
+    .x6220_writeOutputsBit1To128_sub0 = 0x0C,
+    .x6220_writeOutputsBit1To128 = {false, false, false, false, false, false, false, false, false, false, false, false},
+    .x6240_changePolarityOutputsBit1To128_sub0 = 0x0C,
+    .x6240_changePolarityOutputsBit1To128 = {false, false, false, false, false, false, false, false, false, false, false, false},
+    .x6300_writeOutputs16Bit_sub0 = 0x01,
+    .x6300_writeOutputs16Bit = {0x0000},
+    .x6302_changePolarityOutputs16Bit_sub0 = 0x01,
+    .x6302_changePolarityOutputs16Bit = {0x0000},
+    .x6400_readAnalogueInput8Bit_sub0 = 0x07,
+    .x6400_readAnalogueInput8Bit = {0, 0, 0, 0, 0, 0, 0},
+    .x6401_readAnalogueInput16Bit_sub0 = 0x07,
+    .x6401_readAnalogueInput16Bit = {0, 0, 0, 0, 0, 0, 0},
+    .x6414_write_manufacturer_specific_analogue_output_sub0 = 0x02,
+    .x6414_write_manufacturer_specific_analogue_output = {0x00, 0x00},
+    .x6423_analogueInputGlobalInterruptEnable = false,
+    .x6426_analogueInputInterruptDeltaUnsigned_sub0 = 0x07,
+    .x6426_analogueInputInterruptDeltaUnsigned = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000}
+};
+
+OD_ATTR_PERSIST_COMM OD_PERSIST_COMM_t OD_PERSIST_COMM = {
+    .x1401_RPDOCommunicationParameter = {
+        .highestSub_indexSupported = 0x05,
+        .COB_IDUsedByRPDO = 0x80000300,
+        .transmissionType = 0xFE,
+        .eventTimer = 0x0000
+    },
+    .x1402_RPDOCommunicationParameter = {
+        .highestSub_indexSupported = 0x05,
+        .COB_IDUsedByRPDO = 0x80000400,
+        .transmissionType = 0xFE,
+        .eventTimer = 0x0000
+    },
+    .x1403_RPDOCommunicationParameter = {
+        .highestSub_indexSupported = 0x05,
+        .COB_IDUsedByRPDO = 0x80000500,
+        .transmissionType = 0xFE,
+        .eventTimer = 0x0000
+    },
+    .x1601_RPDOMappingParameter = {
+        .numberOfMappedApplicationObjectsInPDO = 0x00,
+        .applicationObject1 = 0x00000000,
+        .applicationObject2 = 0x00000000,
+        .applicationObject3 = 0x00000000,
+        .applicationObject4 = 0x00000000,
+        .applicationObject5 = 0x00000000,
+        .applicationObject6 = 0x00000000,
+        .applicationObject7 = 0x00000000,
+        .applicationObject8 = 0x00000000
+    },
+    .x1602_RPDOMappingParameter = {
+        .numberOfMappedApplicationObjectsInPDO = 0x00,
+        .applicationObject1 = 0x00000000,
+        .applicationObject2 = 0x00000000,
+        .applicationObject3 = 0x00000000,
+        .applicationObject4 = 0x00000000,
+        .applicationObject5 = 0x00000000,
+        .applicationObject6 = 0x00000000,
+        .applicationObject7 = 0x00000000,
+        .applicationObject8 = 0x00000000
+    },
+    .x1603_RPDOMappingParameter = {
+        .numberOfMappedApplicationObjectsInPDO = 0x00,
+        .applicationObject1 = 0x00000000,
+        .applicationObject2 = 0x00000000,
+        .applicationObject3 = 0x00000000,
+        .applicationObject4 = 0x00000000,
+        .applicationObject5 = 0x00000000,
+        .applicationObject6 = 0x00000000,
+        .applicationObject7 = 0x00000000,
+        .applicationObject8 = 0x00000000
+    },
+    .x1803_TPDOCommunicationParameter = {
+        .highestSub_indexSupported = 0x06,
+        .COB_IDUsedByTPDO = 0xC0000480,
+        .transmissionType = 0xFE,
+        .inhibitTime = 0x0000,
+        .eventTimer = 0x0000,
+        .SYNCStartValue = 0x00
+    },
+    .x1A03_TPDOMappingParameter = {
+        .numberOfMappedApplicationObjectsInPDO = 0x00,
+        .applicationObject1 = 0x00000000,
+        .applicationObject2 = 0x00000000,
+        .applicationObject3 = 0x00000000,
+        .applicationObject4 = 0x00000000,
+        .applicationObject5 = 0x00000000,
+        .applicationObject6 = 0x00000000,
+        .applicationObject7 = 0x00000000,
+        .applicationObject8 = 0x00000000
+    }
 };
 
 
@@ -116,7 +314,7 @@ typedef struct {
     OD_obj_var_t o_1000_deviceType;
     OD_obj_var_t o_1001_errorRegister;
     OD_obj_var_t o_1002_manufacturerStatusRegister;
-    OD_obj_array_t o_1003_pre_definedErrorField;
+    OD_obj_array_t o_1003_re_definedErrorField;
     OD_obj_var_t o_1008_manufacturerDeviceName;
     OD_obj_var_t o_1009_manufacturerHardwareVersion;
     OD_obj_var_t o_100A_manufacturerSoftwareVersion;
@@ -127,15 +325,78 @@ typedef struct {
     OD_obj_record_t o_1018_identity[5];
     OD_obj_record_t o_1200_serverSDO_Parameter[3];
     OD_obj_record_t o_1400_RPDOCommunicationParameter[4];
+    OD_obj_record_t o_1401_RPDOCommunicationParameter[4];
+    OD_obj_record_t o_1402_RPDOCommunicationParameter[4];
+    OD_obj_record_t o_1403_RPDOCommunicationParameter[4];
     OD_obj_record_t o_1600_RPDOMappingParameter[9];
+    OD_obj_record_t o_1601_RPDOMappingParameter[9];
+    OD_obj_record_t o_1602_RPDOMappingParameter[9];
+    OD_obj_record_t o_1603_RPDOMappingParameter[9];
     OD_obj_record_t o_1800_TPDOCommunicationParameter[6];
     OD_obj_record_t o_1801_TPDOCommunicationParameter[6];
+    OD_obj_record_t o_1802_TPDOCommunicationParameter[6];
+    OD_obj_record_t o_1803_TPDOCommunicationParameter[6];
     OD_obj_record_t o_1A00_TPDOMappingParameter[9];
     OD_obj_record_t o_1A01_TPDOMappingParameter[9];
+    OD_obj_record_t o_1A02_TPDOMappingParameter[9];
+    OD_obj_record_t o_1A03_TPDOMappingParameter[9];
     OD_obj_array_t o_2000_digitalInputHardwareCapabilities;
-    OD_obj_array_t o_6000_digitalInputs;
-    OD_obj_array_t o_6001_digitalOutputs;
-    OD_obj_array_t o_6002_analogValues;
+    OD_obj_array_t o_2010_digitalInputHardwareConfiguration;
+    OD_obj_array_t o_2011_digitalInputDebounceTime;
+    OD_obj_array_t o_2020_digitalInputGateTime;
+    OD_obj_array_t o_2021_digitalInputConductanceThreshold;
+    OD_obj_array_t o_2022_digitalInputCountdownValue;
+    OD_obj_array_t o_2030_digitalInputFrequency;
+    OD_obj_array_t o_2031_digitalInputEventCount;
+    OD_obj_array_t o_2040_digitalInputStatus;
+    OD_obj_array_t o_2100_digitalOutputHardwareCapabilities;
+    OD_obj_array_t o_2110_digitalOutputHardwareConfiguration;
+    OD_obj_array_t o_2120_digitalOutputPulsePeriod;
+    OD_obj_array_t o_2130_digitalOutputPulseDuty;
+    OD_obj_array_t o_2200_analogueInputHardwareCapabilities;
+    OD_obj_array_t o_2210_analogueInputHardwareConfiguration;
+    OD_obj_array_t o_2220_analogueInputSpanLow;
+    OD_obj_array_t o_2221_analogueInputSpanHigh;
+    OD_obj_array_t o_2222_analogueInputClampThresholdLow;
+    OD_obj_array_t o_2223_analogueInputClampThresholdHigh;
+    OD_obj_array_t o_2224_analogueInputClampValueLow;
+    OD_obj_array_t o_2225_analogueInputClampValueHigh;
+    OD_obj_array_t o_2226_analogueInputErrorThresholdLow;
+    OD_obj_array_t o_2227_analogueInputErrorThresholdHigh;
+    OD_obj_array_t o_2228_analogueInputDampingConstant;
+    OD_obj_array_t o_2229_analogueInputInterruptAbsoluteDelta;
+    OD_obj_array_t o_2230_analogueInputTransformedValue;
+    OD_obj_array_t o_2240_analogueInputStatus;
+    OD_obj_array_t o_2300_analogueOutputHardwareCapabilities;
+    OD_obj_array_t o_2410_motionSenseInputA;
+    OD_obj_array_t o_2411_motionSenseInputB;
+    OD_obj_array_t o_2420_motionSenseGateTime;
+    OD_obj_array_t o_2430_motionSenseFrequency;
+    OD_obj_array_t o_2431_motionSenseEventCount;
+    OD_obj_array_t o_6000_readInputs8Bit;
+    OD_obj_array_t o_6002_polarityInput8Bit;
+    OD_obj_array_t o_6003_filterConstantInput8Bit;
+    OD_obj_var_t o_6005_globalInterruptEnableDigital;
+    OD_obj_array_t o_6006_interruptMaskAnyChange8Bit;
+    OD_obj_array_t o_6020_readInputBit0x1To0x80;
+    OD_obj_array_t o_6030_polarityInputBit0x1To0x80;
+    OD_obj_array_t o_6038_filterConstantInputBit0x1To0x80;
+    OD_obj_array_t o_6050_interruptMaskInputAnyChangeBit0x1To0x80;
+    OD_obj_array_t o_6100_readInputs16Bit;
+    OD_obj_array_t o_6102_polarityInput16Bit;
+    OD_obj_array_t o_6103_filterConstantInput16Bit;
+    OD_obj_array_t o_6106_interruptMaskAnyChange16Bit;
+    OD_obj_array_t o_6200_writeOutputs8Bit;
+    OD_obj_array_t o_6202_changePolarityOutputs8Bit;
+    OD_obj_array_t o_6220_writeOutputsBit1To128;
+    OD_obj_array_t o_6240_changePolarityOutputsBit1To128;
+    OD_obj_array_t o_6300_writeOutputs16Bit;
+    OD_obj_array_t o_6302_changePolarityOutputs16Bit;
+    OD_obj_array_t o_6400_readAnalogueInput8Bit;
+    OD_obj_array_t o_6401_readAnalogueInput16Bit;
+    OD_obj_array_t o_6414_write_manufacturer_specific_analogue_output;
+    OD_obj_var_t o_6423_analogueInputGlobalInterruptEnable;
+    OD_obj_array_t o_6426_analogueInputInterruptDeltaUnsigned;
 } ODObjs_t;
 
 static CO_PROGMEM ODObjs_t ODObjs = {
@@ -154,11 +415,11 @@ static CO_PROGMEM ODObjs_t ODObjs = {
         .attribute = ODA_SDO_R | ODA_TRPDO | ODA_MB,
         .dataLength = 4
     },
-    .o_1003_pre_definedErrorField = {
-        .dataOrig0 = NULL,
-        .dataOrig = NULL,
-        .attribute0 = ODA_SDO_RW,
-        .attribute = ODA_SDO_R | ODA_MB,
+    .o_1003_re_definedErrorField = {
+        .dataOrig0 = &OD_RAM.x1003_re_definedErrorField_sub0,
+        .dataOrig = &OD_RAM.x1003_re_definedErrorField[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
         .dataElementLength = 4,
         .dataElementSizeof = sizeof(uint32_t)
     },
@@ -278,6 +539,84 @@ static CO_PROGMEM ODObjs_t ODObjs = {
             .dataLength = 2
         }
     },
+    .o_1401_RPDOCommunicationParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1401_RPDOCommunicationParameter.highestSub_indexSupported,
+            .subIndex = 0,
+            .attribute = ODA_SDO_R,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1401_RPDOCommunicationParameter.COB_IDUsedByRPDO,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1401_RPDOCommunicationParameter.transmissionType,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1401_RPDOCommunicationParameter.eventTimer,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 2
+        }
+    },
+    .o_1402_RPDOCommunicationParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1402_RPDOCommunicationParameter.highestSub_indexSupported,
+            .subIndex = 0,
+            .attribute = ODA_SDO_R,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1402_RPDOCommunicationParameter.COB_IDUsedByRPDO,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1402_RPDOCommunicationParameter.transmissionType,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1402_RPDOCommunicationParameter.eventTimer,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 2
+        }
+    },
+    .o_1403_RPDOCommunicationParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1403_RPDOCommunicationParameter.highestSub_indexSupported,
+            .subIndex = 0,
+            .attribute = ODA_SDO_R,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1403_RPDOCommunicationParameter.COB_IDUsedByRPDO,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1403_RPDOCommunicationParameter.transmissionType,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1403_RPDOCommunicationParameter.eventTimer,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 2
+        }
+    },
     .o_1600_RPDOMappingParameter = {
         {
             .dataOrig = &OD_RAM.x1600_RPDOMappingParameter.numberOfMappedApplicationObjectsInPDO,
@@ -329,6 +668,174 @@ static CO_PROGMEM ODObjs_t ODObjs = {
         },
         {
             .dataOrig = &OD_RAM.x1600_RPDOMappingParameter.applicationObject8,
+            .subIndex = 8,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        }
+    },
+    .o_1601_RPDOMappingParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.numberOfMappedApplicationObjectsInPDO,
+            .subIndex = 0,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject1,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject2,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject3,
+            .subIndex = 3,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject4,
+            .subIndex = 4,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject5,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject6,
+            .subIndex = 6,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject7,
+            .subIndex = 7,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1601_RPDOMappingParameter.applicationObject8,
+            .subIndex = 8,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        }
+    },
+    .o_1602_RPDOMappingParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.numberOfMappedApplicationObjectsInPDO,
+            .subIndex = 0,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject1,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject2,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject3,
+            .subIndex = 3,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject4,
+            .subIndex = 4,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject5,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject6,
+            .subIndex = 6,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject7,
+            .subIndex = 7,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1602_RPDOMappingParameter.applicationObject8,
+            .subIndex = 8,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        }
+    },
+    .o_1603_RPDOMappingParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.numberOfMappedApplicationObjectsInPDO,
+            .subIndex = 0,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject1,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject2,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject3,
+            .subIndex = 3,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject4,
+            .subIndex = 4,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject5,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject6,
+            .subIndex = 6,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject7,
+            .subIndex = 7,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1603_RPDOMappingParameter.applicationObject8,
             .subIndex = 8,
             .attribute = ODA_SDO_RW | ODA_MB,
             .dataLength = 4
@@ -405,6 +912,82 @@ static CO_PROGMEM ODObjs_t ODObjs = {
         },
         {
             .dataOrig = &OD_RAM.x1801_TPDOCommunicationParameter.SYNCStartValue,
+            .subIndex = 6,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        }
+    },
+    .o_1802_TPDOCommunicationParameter = {
+        {
+            .dataOrig = &OD_RAM.x1802_TPDOCommunicationParameter.highestSub_indexSupported,
+            .subIndex = 0,
+            .attribute = ODA_SDO_R,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_RAM.x1802_TPDOCommunicationParameter.COB_IDUsedByTPDO,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1802_TPDOCommunicationParameter.transmissionType,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_RAM.x1802_TPDOCommunicationParameter.inhibitTime,
+            .subIndex = 3,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 2
+        },
+        {
+            .dataOrig = &OD_RAM.x1802_TPDOCommunicationParameter.eventTimer,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 2
+        },
+        {
+            .dataOrig = &OD_RAM.x1802_TPDOCommunicationParameter.SYNCStartValue,
+            .subIndex = 6,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        }
+    },
+    .o_1803_TPDOCommunicationParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1803_TPDOCommunicationParameter.highestSub_indexSupported,
+            .subIndex = 0,
+            .attribute = ODA_SDO_R,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1803_TPDOCommunicationParameter.COB_IDUsedByTPDO,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1803_TPDOCommunicationParameter.transmissionType,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1803_TPDOCommunicationParameter.inhibitTime,
+            .subIndex = 3,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 2
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1803_TPDOCommunicationParameter.eventTimer,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 2
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1803_TPDOCommunicationParameter.SYNCStartValue,
             .subIndex = 6,
             .attribute = ODA_SDO_RW,
             .dataLength = 1
@@ -522,6 +1105,118 @@ static CO_PROGMEM ODObjs_t ODObjs = {
             .dataLength = 4
         }
     },
+    .o_1A02_TPDOMappingParameter = {
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.numberOfMappedApplicationObjectsInPDO,
+            .subIndex = 0,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject1,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject2,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject3,
+            .subIndex = 3,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject4,
+            .subIndex = 4,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject5,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject6,
+            .subIndex = 6,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject7,
+            .subIndex = 7,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_RAM.x1A02_TPDOMappingParameter.applicationObject8,
+            .subIndex = 8,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        }
+    },
+    .o_1A03_TPDOMappingParameter = {
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.numberOfMappedApplicationObjectsInPDO,
+            .subIndex = 0,
+            .attribute = ODA_SDO_RW,
+            .dataLength = 1
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject1,
+            .subIndex = 1,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject2,
+            .subIndex = 2,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject3,
+            .subIndex = 3,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject4,
+            .subIndex = 4,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject5,
+            .subIndex = 5,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject6,
+            .subIndex = 6,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject7,
+            .subIndex = 7,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        },
+        {
+            .dataOrig = &OD_PERSIST_COMM.x1A03_TPDOMappingParameter.applicationObject8,
+            .subIndex = 8,
+            .attribute = ODA_SDO_RW | ODA_MB,
+            .dataLength = 4
+        }
+    },
     .o_2000_digitalInputHardwareCapabilities = {
         .dataOrig0 = &OD_RAM.x2000_digitalInputHardwareCapabilities_sub0,
         .dataOrig = &OD_RAM.x2000_digitalInputHardwareCapabilities[0],
@@ -530,29 +1225,447 @@ static CO_PROGMEM ODObjs_t ODObjs = {
         .dataElementLength = 4,
         .dataElementSizeof = sizeof(uint32_t)
     },
-    .o_6000_digitalInputs = {
-        .dataOrig0 = &OD_RAM.x6000_digitalInputs_sub0,
-        .dataOrig = &OD_RAM.x6000_digitalInputs[0],
+    .o_2010_digitalInputHardwareConfiguration = {
+        .dataOrig0 = &OD_RAM.x2010_digitalInputHardwareConfiguration_sub0,
+        .dataOrig = &OD_RAM.x2010_digitalInputHardwareConfiguration[0],
         .attribute0 = ODA_SDO_R,
-        .attribute = ODA_SDO_R | ODA_TRPDO,
-        .dataElementLength = 1,
-        .dataElementSizeof = sizeof(uint8_t)
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
     },
-    .o_6001_digitalOutputs = {
-        .dataOrig0 = &OD_RAM.x6001_digitalOutputs_sub0,
-        .dataOrig = &OD_RAM.x6001_digitalOutputs[0],
+    .o_2011_digitalInputDebounceTime = {
+        .dataOrig0 = &OD_RAM.x2011_digitalInputDebounceTime_sub0,
+        .dataOrig = &OD_RAM.x2011_digitalInputDebounceTime[0],
         .attribute0 = ODA_SDO_R,
         .attribute = ODA_SDO_RW | ODA_TRPDO,
         .dataElementLength = 1,
         .dataElementSizeof = sizeof(uint8_t)
     },
-    .o_6002_analogValues = {
-        .dataOrig0 = &OD_RAM.x6002_analogValues_sub0,
-        .dataOrig = &OD_RAM.x6002_analogValues[0],
+    .o_2020_digitalInputGateTime = {
+        .dataOrig0 = &OD_RAM.x2020_digitalInputGateTime_sub0,
+        .dataOrig = &OD_RAM.x2020_digitalInputGateTime[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2021_digitalInputConductanceThreshold = {
+        .dataOrig0 = &OD_RAM.x2021_digitalInputConductanceThreshold_sub0,
+        .dataOrig = &OD_RAM.x2021_digitalInputConductanceThreshold[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2022_digitalInputCountdownValue = {
+        .dataOrig0 = &OD_RAM.x2022_digitalInputCountdownValue_sub0,
+        .dataOrig = &OD_RAM.x2022_digitalInputCountdownValue[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2030_digitalInputFrequency = {
+        .dataOrig0 = &OD_RAM.x2030_digitalInputFrequency_sub0,
+        .dataOrig = &OD_RAM.x2030_digitalInputFrequency[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2031_digitalInputEventCount = {
+        .dataOrig0 = &OD_RAM.x2031_digitalInputEventCount_sub0,
+        .dataOrig = &OD_RAM.x2031_digitalInputEventCount[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2040_digitalInputStatus = {
+        .dataOrig0 = &OD_RAM.x2040_digitalInputStatus_sub0,
+        .dataOrig = &OD_RAM.x2040_digitalInputStatus[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2100_digitalOutputHardwareCapabilities = {
+        .dataOrig0 = &OD_RAM.x2100_digitalOutputHardwareCapabilities_sub0,
+        .dataOrig = &OD_RAM.x2100_digitalOutputHardwareCapabilities[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_MB,
+        .dataElementLength = 4,
+        .dataElementSizeof = sizeof(uint32_t)
+    },
+    .o_2110_digitalOutputHardwareConfiguration = {
+        .dataOrig0 = &OD_RAM.x2110_digitalOutputHardwareConfiguration_sub0,
+        .dataOrig = &OD_RAM.x2110_digitalOutputHardwareConfiguration[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_2120_digitalOutputPulsePeriod = {
+        .dataOrig0 = &OD_RAM.x2120_digitalOutputPulsePeriod_sub0,
+        .dataOrig = &OD_RAM.x2120_digitalOutputPulsePeriod[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2130_digitalOutputPulseDuty = {
+        .dataOrig0 = &OD_RAM.x2130_digitalOutputPulseDuty_sub0,
+        .dataOrig = &OD_RAM.x2130_digitalOutputPulseDuty[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2200_analogueInputHardwareCapabilities = {
+        .dataOrig0 = &OD_RAM.x2200_analogueInputHardwareCapabilities_sub0,
+        .dataOrig = &OD_RAM.x2200_analogueInputHardwareCapabilities[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_MB,
+        .dataElementLength = 4,
+        .dataElementSizeof = sizeof(uint32_t)
+    },
+    .o_2210_analogueInputHardwareConfiguration = {
+        .dataOrig0 = &OD_RAM.x2210_analogueInputHardwareConfiguration_sub0,
+        .dataOrig = &OD_RAM.x2210_analogueInputHardwareConfiguration[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_2220_analogueInputSpanLow = {
+        .dataOrig0 = &OD_RAM.x2220_analogueInputSpanLow_sub0,
+        .dataOrig = &OD_RAM.x2220_analogueInputSpanLow[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(int16_t)
+    },
+    .o_2221_analogueInputSpanHigh = {
+        .dataOrig0 = &OD_RAM.x2221_analogueInputSpanHigh_sub0,
+        .dataOrig = &OD_RAM.x2221_analogueInputSpanHigh[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(int16_t)
+    },
+    .o_2222_analogueInputClampThresholdLow = {
+        .dataOrig0 = &OD_RAM.x2222_analogueInputClampThresholdLow_sub0,
+        .dataOrig = &OD_RAM.x2222_analogueInputClampThresholdLow[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_2223_analogueInputClampThresholdHigh = {
+        .dataOrig0 = &OD_RAM.x2223_analogueInputClampThresholdHigh_sub0,
+        .dataOrig = &OD_RAM.x2223_analogueInputClampThresholdHigh[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_2224_analogueInputClampValueLow = {
+        .dataOrig0 = &OD_RAM.x2224_analogueInputClampValueLow_sub0,
+        .dataOrig = &OD_RAM.x2224_analogueInputClampValueLow[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2225_analogueInputClampValueHigh = {
+        .dataOrig0 = &OD_RAM.x2225_analogueInputClampValueHigh_sub0,
+        .dataOrig = &OD_RAM.x2225_analogueInputClampValueHigh[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2226_analogueInputErrorThresholdLow = {
+        .dataOrig0 = &OD_RAM.x2226_analogueInputErrorThresholdLow_sub0,
+        .dataOrig = &OD_RAM.x2226_analogueInputErrorThresholdLow[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_2227_analogueInputErrorThresholdHigh = {
+        .dataOrig0 = &OD_RAM.x2227_analogueInputErrorThresholdHigh_sub0,
+        .dataOrig = &OD_RAM.x2227_analogueInputErrorThresholdHigh[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_2228_analogueInputDampingConstant = {
+        .dataOrig0 = &OD_RAM.x2228_analogueInputDampingConstant_sub0,
+        .dataOrig = &OD_RAM.x2228_analogueInputDampingConstant[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2229_analogueInputInterruptAbsoluteDelta = {
+        .dataOrig0 = &OD_RAM.x2229_analogueInputInterruptAbsoluteDelta_sub0,
+        .dataOrig = &OD_RAM.x2229_analogueInputInterruptAbsoluteDelta[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2230_analogueInputTransformedValue = {
+        .dataOrig0 = &OD_RAM.x2230_analogueInputTransformedValue_sub0,
+        .dataOrig = &OD_RAM.x2230_analogueInputTransformedValue[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2240_analogueInputStatus = {
+        .dataOrig0 = &OD_RAM.x2240_analogueInputStatus_sub0,
+        .dataOrig = &OD_RAM.x2240_analogueInputStatus[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2300_analogueOutputHardwareCapabilities = {
+        .dataOrig0 = &OD_RAM.x2300_analogueOutputHardwareCapabilities_sub0,
+        .dataOrig = &OD_RAM.x2300_analogueOutputHardwareCapabilities[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 4,
+        .dataElementSizeof = sizeof(uint32_t)
+    },
+    .o_2410_motionSenseInputA = {
+        .dataOrig0 = &OD_RAM.x2410_motionSenseInputA_sub0,
+        .dataOrig = &OD_RAM.x2410_motionSenseInputA[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2411_motionSenseInputB = {
+        .dataOrig0 = &OD_RAM.x2411_motionSenseInputB_sub0,
+        .dataOrig = &OD_RAM.x2411_motionSenseInputB[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2420_motionSenseGateTime = {
+        .dataOrig0 = &OD_RAM.x2420_motionSenseGateTime_sub0,
+        .dataOrig = &OD_RAM.x2420_motionSenseGateTime[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2430_motionSenseFrequency = {
+        .dataOrig0 = &OD_RAM.x2430_motionSenseFrequency_sub0,
+        .dataOrig = &OD_RAM.x2430_motionSenseFrequency[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_2431_motionSenseEventCount = {
+        .dataOrig0 = &OD_RAM.x2431_motionSenseEventCount_sub0,
+        .dataOrig = &OD_RAM.x2431_motionSenseEventCount[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6000_readInputs8Bit = {
+        .dataOrig0 = &OD_RAM.x6000_readInputs8Bit_sub0,
+        .dataOrig = &OD_RAM.x6000_readInputs8Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6002_polarityInput8Bit = {
+        .dataOrig0 = &OD_RAM.x6002_polarityInput8Bit_sub0,
+        .dataOrig = &OD_RAM.x6002_polarityInput8Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6003_filterConstantInput8Bit = {
+        .dataOrig0 = &OD_RAM.x6003_filterConstantInput8Bit_sub0,
+        .dataOrig = &OD_RAM.x6003_filterConstantInput8Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6005_globalInterruptEnableDigital = {
+        .dataOrig = &OD_RAM.x6005_globalInterruptEnableDigital,
+        .attribute = ODA_SDO_RW,
+        .dataLength = 1
+    },
+    .o_6006_interruptMaskAnyChange8Bit = {
+        .dataOrig0 = &OD_RAM.x6006_interruptMaskAnyChange8Bit_sub0,
+        .dataOrig = &OD_RAM.x6006_interruptMaskAnyChange8Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6020_readInputBit0x1To0x80 = {
+        .dataOrig0 = &OD_RAM.x6020_readInputBit0x1To0x80_sub0,
+        .dataOrig = &OD_RAM.x6020_readInputBit0x1To0x80[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(bool_t)
+    },
+    .o_6030_polarityInputBit0x1To0x80 = {
+        .dataOrig0 = &OD_RAM.x6030_polarityInputBit0x1To0x80_sub0,
+        .dataOrig = &OD_RAM.x6030_polarityInputBit0x1To0x80[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(bool_t)
+    },
+    .o_6038_filterConstantInputBit0x1To0x80 = {
+        .dataOrig0 = &OD_RAM.x6038_filterConstantInputBit0x1To0x80_sub0,
+        .dataOrig = &OD_RAM.x6038_filterConstantInputBit0x1To0x80[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(bool_t)
+    },
+    .o_6050_interruptMaskInputAnyChangeBit0x1To0x80 = {
+        .dataOrig0 = &OD_RAM.x6050_interruptMaskInputAnyChangeBit0x1To0x80_sub0,
+        .dataOrig = &OD_RAM.x6050_interruptMaskInputAnyChangeBit0x1To0x80[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(bool_t)
+    },
+    .o_6100_readInputs16Bit = {
+        .dataOrig0 = &OD_RAM.x6100_readInputs16Bit_sub0,
+        .dataOrig = &OD_RAM.x6100_readInputs16Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_6102_polarityInput16Bit = {
+        .dataOrig0 = &OD_RAM.x6102_polarityInput16Bit_sub0,
+        .dataOrig = &OD_RAM.x6102_polarityInput16Bit[0],
         .attribute0 = ODA_SDO_R,
         .attribute = ODA_SDO_RW | ODA_TRPDO | ODA_MB,
         .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_6103_filterConstantInput16Bit = {
+        .dataOrig0 = &OD_RAM.x6103_filterConstantInput16Bit_sub0,
+        .dataOrig = &OD_RAM.x6103_filterConstantInput16Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_6106_interruptMaskAnyChange16Bit = {
+        .dataOrig0 = &OD_RAM.x6106_interruptMaskAnyChange16Bit_sub0,
+        .dataOrig = &OD_RAM.x6106_interruptMaskAnyChange16Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_6200_writeOutputs8Bit = {
+        .dataOrig0 = &OD_RAM.x6200_writeOutputs8Bit_sub0,
+        .dataOrig = &OD_RAM.x6200_writeOutputs8Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6202_changePolarityOutputs8Bit = {
+        .dataOrig0 = &OD_RAM.x6202_changePolarityOutputs8Bit_sub0,
+        .dataOrig = &OD_RAM.x6202_changePolarityOutputs8Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6220_writeOutputsBit1To128 = {
+        .dataOrig0 = &OD_RAM.x6220_writeOutputsBit1To128_sub0,
+        .dataOrig = &OD_RAM.x6220_writeOutputsBit1To128[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(bool_t)
+    },
+    .o_6240_changePolarityOutputsBit1To128 = {
+        .dataOrig0 = &OD_RAM.x6240_changePolarityOutputsBit1To128_sub0,
+        .dataOrig = &OD_RAM.x6240_changePolarityOutputsBit1To128[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(bool_t)
+    },
+    .o_6300_writeOutputs16Bit = {
+        .dataOrig0 = &OD_RAM.x6300_writeOutputs16Bit_sub0,
+        .dataOrig = &OD_RAM.x6300_writeOutputs16Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_6302_changePolarityOutputs16Bit = {
+        .dataOrig0 = &OD_RAM.x6302_changePolarityOutputs16Bit_sub0,
+        .dataOrig = &OD_RAM.x6302_changePolarityOutputs16Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 2,
+        .dataElementSizeof = sizeof(uint16_t)
+    },
+    .o_6400_readAnalogueInput8Bit = {
+        .dataOrig0 = &OD_RAM.x6400_readAnalogueInput8Bit_sub0,
+        .dataOrig = &OD_RAM.x6400_readAnalogueInput8Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(int8_t)
+    },
+    .o_6401_readAnalogueInput16Bit = {
+        .dataOrig0 = &OD_RAM.x6401_readAnalogueInput16Bit_sub0,
+        .dataOrig = &OD_RAM.x6401_readAnalogueInput16Bit[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_R | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 2,
         .dataElementSizeof = sizeof(int16_t)
+    },
+    .o_6414_write_manufacturer_specific_analogue_output = {
+        .dataOrig0 = &OD_RAM.x6414_write_manufacturer_specific_analogue_output_sub0,
+        .dataOrig = &OD_RAM.x6414_write_manufacturer_specific_analogue_output[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataElementLength = 1,
+        .dataElementSizeof = sizeof(uint8_t)
+    },
+    .o_6423_analogueInputGlobalInterruptEnable = {
+        .dataOrig = &OD_RAM.x6423_analogueInputGlobalInterruptEnable,
+        .attribute = ODA_SDO_RW | ODA_TRPDO,
+        .dataLength = 1
+    },
+    .o_6426_analogueInputInterruptDeltaUnsigned = {
+        .dataOrig0 = &OD_RAM.x6426_analogueInputInterruptDeltaUnsigned_sub0,
+        .dataOrig = &OD_RAM.x6426_analogueInputInterruptDeltaUnsigned[0],
+        .attribute0 = ODA_SDO_R,
+        .attribute = ODA_SDO_RW | ODA_TRPDO | ODA_MB,
+        .dataElementLength = 4,
+        .dataElementSizeof = sizeof(uint32_t)
     }
 };
 
@@ -564,7 +1677,7 @@ static OD_ATTR_OD OD_entry_t ODList[] = {
     {0x1000, 0x01, ODT_VAR, &ODObjs.o_1000_deviceType, NULL},
     {0x1001, 0x01, ODT_VAR, &ODObjs.o_1001_errorRegister, NULL},
     {0x1002, 0x01, ODT_VAR, &ODObjs.o_1002_manufacturerStatusRegister, NULL},
-    {0x1003, 0x11, ODT_ARR, &ODObjs.o_1003_pre_definedErrorField, NULL},
+    {0x1003, 0x02, ODT_ARR, &ODObjs.o_1003_re_definedErrorField, NULL},
     {0x1008, 0x01, ODT_VAR, &ODObjs.o_1008_manufacturerDeviceName, NULL},
     {0x1009, 0x01, ODT_VAR, &ODObjs.o_1009_manufacturerHardwareVersion, NULL},
     {0x100A, 0x01, ODT_VAR, &ODObjs.o_100A_manufacturerSoftwareVersion, NULL},
@@ -575,15 +1688,78 @@ static OD_ATTR_OD OD_entry_t ODList[] = {
     {0x1018, 0x05, ODT_REC, &ODObjs.o_1018_identity, NULL},
     {0x1200, 0x03, ODT_REC, &ODObjs.o_1200_serverSDO_Parameter, NULL},
     {0x1400, 0x04, ODT_REC, &ODObjs.o_1400_RPDOCommunicationParameter, NULL},
+    {0x1401, 0x04, ODT_REC, &ODObjs.o_1401_RPDOCommunicationParameter, NULL},
+    {0x1402, 0x04, ODT_REC, &ODObjs.o_1402_RPDOCommunicationParameter, NULL},
+    {0x1403, 0x04, ODT_REC, &ODObjs.o_1403_RPDOCommunicationParameter, NULL},
     {0x1600, 0x09, ODT_REC, &ODObjs.o_1600_RPDOMappingParameter, NULL},
+    {0x1601, 0x09, ODT_REC, &ODObjs.o_1601_RPDOMappingParameter, NULL},
+    {0x1602, 0x09, ODT_REC, &ODObjs.o_1602_RPDOMappingParameter, NULL},
+    {0x1603, 0x09, ODT_REC, &ODObjs.o_1603_RPDOMappingParameter, NULL},
     {0x1800, 0x06, ODT_REC, &ODObjs.o_1800_TPDOCommunicationParameter, NULL},
     {0x1801, 0x06, ODT_REC, &ODObjs.o_1801_TPDOCommunicationParameter, NULL},
+    {0x1802, 0x06, ODT_REC, &ODObjs.o_1802_TPDOCommunicationParameter, NULL},
+    {0x1803, 0x06, ODT_REC, &ODObjs.o_1803_TPDOCommunicationParameter, NULL},
     {0x1A00, 0x09, ODT_REC, &ODObjs.o_1A00_TPDOMappingParameter, NULL},
     {0x1A01, 0x09, ODT_REC, &ODObjs.o_1A01_TPDOMappingParameter, NULL},
+    {0x1A02, 0x09, ODT_REC, &ODObjs.o_1A02_TPDOMappingParameter, NULL},
+    {0x1A03, 0x09, ODT_REC, &ODObjs.o_1A03_TPDOMappingParameter, NULL},
     {0x2000, 0x0D, ODT_ARR, &ODObjs.o_2000_digitalInputHardwareCapabilities, NULL},
-    {0x6000, 0x03, ODT_ARR, &ODObjs.o_6000_digitalInputs, NULL},
-    {0x6001, 0x03, ODT_ARR, &ODObjs.o_6001_digitalOutputs, NULL},
-    {0x6002, 0x09, ODT_ARR, &ODObjs.o_6002_analogValues, NULL},
+    {0x2010, 0x0D, ODT_ARR, &ODObjs.o_2010_digitalInputHardwareConfiguration, NULL},
+    {0x2011, 0x0C, ODT_ARR, &ODObjs.o_2011_digitalInputDebounceTime, NULL},
+    {0x2020, 0x0D, ODT_ARR, &ODObjs.o_2020_digitalInputGateTime, NULL},
+    {0x2021, 0x0D, ODT_ARR, &ODObjs.o_2021_digitalInputConductanceThreshold, NULL},
+    {0x2022, 0x0D, ODT_ARR, &ODObjs.o_2022_digitalInputCountdownValue, NULL},
+    {0x2030, 0x0D, ODT_ARR, &ODObjs.o_2030_digitalInputFrequency, NULL},
+    {0x2031, 0x0D, ODT_ARR, &ODObjs.o_2031_digitalInputEventCount, NULL},
+    {0x2040, 0x0D, ODT_ARR, &ODObjs.o_2040_digitalInputStatus, NULL},
+    {0x2100, 0x0D, ODT_ARR, &ODObjs.o_2100_digitalOutputHardwareCapabilities, NULL},
+    {0x2110, 0x0D, ODT_ARR, &ODObjs.o_2110_digitalOutputHardwareConfiguration, NULL},
+    {0x2120, 0x0D, ODT_ARR, &ODObjs.o_2120_digitalOutputPulsePeriod, NULL},
+    {0x2130, 0x0D, ODT_ARR, &ODObjs.o_2130_digitalOutputPulseDuty, NULL},
+    {0x2200, 0x08, ODT_ARR, &ODObjs.o_2200_analogueInputHardwareCapabilities, NULL},
+    {0x2210, 0x08, ODT_ARR, &ODObjs.o_2210_analogueInputHardwareConfiguration, NULL},
+    {0x2220, 0x08, ODT_ARR, &ODObjs.o_2220_analogueInputSpanLow, NULL},
+    {0x2221, 0x08, ODT_ARR, &ODObjs.o_2221_analogueInputSpanHigh, NULL},
+    {0x2222, 0x08, ODT_ARR, &ODObjs.o_2222_analogueInputClampThresholdLow, NULL},
+    {0x2223, 0x08, ODT_ARR, &ODObjs.o_2223_analogueInputClampThresholdHigh, NULL},
+    {0x2224, 0x08, ODT_ARR, &ODObjs.o_2224_analogueInputClampValueLow, NULL},
+    {0x2225, 0x08, ODT_ARR, &ODObjs.o_2225_analogueInputClampValueHigh, NULL},
+    {0x2226, 0x08, ODT_ARR, &ODObjs.o_2226_analogueInputErrorThresholdLow, NULL},
+    {0x2227, 0x08, ODT_ARR, &ODObjs.o_2227_analogueInputErrorThresholdHigh, NULL},
+    {0x2228, 0x08, ODT_ARR, &ODObjs.o_2228_analogueInputDampingConstant, NULL},
+    {0x2229, 0x08, ODT_ARR, &ODObjs.o_2229_analogueInputInterruptAbsoluteDelta, NULL},
+    {0x2230, 0x08, ODT_ARR, &ODObjs.o_2230_analogueInputTransformedValue, NULL},
+    {0x2240, 0x08, ODT_ARR, &ODObjs.o_2240_analogueInputStatus, NULL},
+    {0x2300, 0x03, ODT_ARR, &ODObjs.o_2300_analogueOutputHardwareCapabilities, NULL},
+    {0x2410, 0x06, ODT_ARR, &ODObjs.o_2410_motionSenseInputA, NULL},
+    {0x2411, 0x06, ODT_ARR, &ODObjs.o_2411_motionSenseInputB, NULL},
+    {0x2420, 0x06, ODT_ARR, &ODObjs.o_2420_motionSenseGateTime, NULL},
+    {0x2430, 0x06, ODT_ARR, &ODObjs.o_2430_motionSenseFrequency, NULL},
+    {0x2431, 0x06, ODT_ARR, &ODObjs.o_2431_motionSenseEventCount, NULL},
+    {0x6000, 0x03, ODT_ARR, &ODObjs.o_6000_readInputs8Bit, NULL},
+    {0x6002, 0x03, ODT_ARR, &ODObjs.o_6002_polarityInput8Bit, NULL},
+    {0x6003, 0x03, ODT_ARR, &ODObjs.o_6003_filterConstantInput8Bit, NULL},
+    {0x6005, 0x01, ODT_VAR, &ODObjs.o_6005_globalInterruptEnableDigital, NULL},
+    {0x6006, 0x03, ODT_ARR, &ODObjs.o_6006_interruptMaskAnyChange8Bit, NULL},
+    {0x6020, 0x0D, ODT_ARR, &ODObjs.o_6020_readInputBit0x1To0x80, NULL},
+    {0x6030, 0x0D, ODT_ARR, &ODObjs.o_6030_polarityInputBit0x1To0x80, NULL},
+    {0x6038, 0x0D, ODT_ARR, &ODObjs.o_6038_filterConstantInputBit0x1To0x80, NULL},
+    {0x6050, 0x0D, ODT_ARR, &ODObjs.o_6050_interruptMaskInputAnyChangeBit0x1To0x80, NULL},
+    {0x6100, 0x02, ODT_ARR, &ODObjs.o_6100_readInputs16Bit, NULL},
+    {0x6102, 0x02, ODT_ARR, &ODObjs.o_6102_polarityInput16Bit, NULL},
+    {0x6103, 0x02, ODT_ARR, &ODObjs.o_6103_filterConstantInput16Bit, NULL},
+    {0x6106, 0x02, ODT_ARR, &ODObjs.o_6106_interruptMaskAnyChange16Bit, NULL},
+    {0x6200, 0x03, ODT_ARR, &ODObjs.o_6200_writeOutputs8Bit, NULL},
+    {0x6202, 0x03, ODT_ARR, &ODObjs.o_6202_changePolarityOutputs8Bit, NULL},
+    {0x6220, 0x0D, ODT_ARR, &ODObjs.o_6220_writeOutputsBit1To128, NULL},
+    {0x6240, 0x0D, ODT_ARR, &ODObjs.o_6240_changePolarityOutputsBit1To128, NULL},
+    {0x6300, 0x02, ODT_ARR, &ODObjs.o_6300_writeOutputs16Bit, NULL},
+    {0x6302, 0x02, ODT_ARR, &ODObjs.o_6302_changePolarityOutputs16Bit, NULL},
+    {0x6400, 0x08, ODT_ARR, &ODObjs.o_6400_readAnalogueInput8Bit, NULL},
+    {0x6401, 0x08, ODT_ARR, &ODObjs.o_6401_readAnalogueInput16Bit, NULL},
+    {0x6414, 0x03, ODT_ARR, &ODObjs.o_6414_write_manufacturer_specific_analogue_output, NULL},
+    {0x6423, 0x01, ODT_VAR, &ODObjs.o_6423_analogueInputGlobalInterruptEnable, NULL},
+    {0x6426, 0x08, ODT_ARR, &ODObjs.o_6426_analogueInputInterruptDeltaUnsigned, NULL},
     {0x0000, 0x00, 0, NULL, NULL}
 };
 
